@@ -1,0 +1,94 @@
+<style>
+  #ssPlayerCard{
+    --cream: #F3EDE1; --ink: #16332A; --gold: #E8B23D; --coral: #E2683F; --rose: #D8628C; --teal: #5FA39C; --lav: #9B8AC4;
+    background: #0F241D; border:1px solid rgba(243,237,225,.25); border-radius:18px;
+    padding:20px; display:flex; align-items:center; gap:20px; box-sizing:border-box;
+  }
+  #ssPlayerCard .play-btn{ width:54px; height:54px; border-radius:50%; background:var(--cream); display:flex; align-items:center; justify-content:center; flex-shrink:0; border:none; cursor:pointer; padding:0; }
+  #ssPlayerCard .play-btn svg{ width:16px; height:16px; fill:var(--ink); margin-left:3px; }
+  #ssPlayerCard .play-btn.is-playing svg{ margin-left:0; }
+  #ssPlayerCard .player-meta{ flex:1; font-family:sans-serif; }
+  #ssPlayerCard .player-meta .t1{ font-size:18px; margin:0; color:var(--cream); }
+  #ssPlayerCard .player-meta .t2{ font-size:12px; color:rgba(243,237,225,.6); margin:2px 0 0; }
+  #ssPlayerCard .waveform{ display:flex; align-items:flex-end; gap:3px; height:28px; margin-top:12px; }
+  #ssPlayerCard .waveform i{ width:3px; border-radius:2px; display:block; min-height:3px; transition:height .06s linear; }
+</style>
+<audio id="ssTrack" preload="metadata" crossorigin="anonymous">
+  <source src="https://dl.dropboxusercontent.com/scl/fi/5magj6hs6ibc4ppx9c5yy/02-EC_American-Teenager-Mix-_BECKER-MASTER-2.flac?rlkey=yjzmkgcei95f81svmpheyjm83&st=ykhfnmrn&dl=0" type="audio/flac">
+</audio>
+<div id="ssPlayerCard">
+  <button class="play-btn" id="ssPlayBtn">
+    <svg id="ssIconPlay" viewBox="0 0 24 24"><path d="M4 2 L22 12 L4 22 Z"></path></svg>
+    <svg id="ssIconPause" viewBox="0 0 24 24" style="display:none"><path d="M5 2 H10 V22 H5 Z M14 2 H19 V22 H14 Z"></path></svg>
+  </button>
+  <div class="player-meta">
+    <p class="t1">school street</p>
+    <p class="t2">the little ear</p>
+    <div class="waveform" id="ssWaveform">
+      <i style="height:4px;background:#E2683F"></i><i style="height:4px;background:#E8B23D"></i><i style="height:4px;background:#D8628C"></i><i style="height:4px;background:#5FA39C"></i><i style="height:4px;background:#9B8AC4"></i><i style="height:4px;background:#E2683F"></i><i style="height:4px;background:#E8B23D"></i><i style="height:4px;background:#D8628C"></i><i style="height:4px;background:#5FA39C"></i><i style="height:4px;background:#9B8AC4"></i><i style="height:4px;background:#E2683F"></i><i style="height:4px;background:#E8B23D"></i>
+    </div>
+  </div>
+</div>
+<script>
+  const audio = document.getElementById('ssTrack');
+  const playBtn = document.getElementById('ssPlayBtn');
+  const iconPlay = document.getElementById('ssIconPlay');
+  const iconPause = document.getElementById('ssIconPause');
+  const bars = document.querySelectorAll('#ssWaveform i');
+  let audioCtx, analyser, source, dataArray, rafId;
+  let corsBlocked = false;
+
+  function setupAudioGraph(){
+    if (audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    try {
+      source = audioCtx.createMediaElementSource(audio);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+    } catch(err) {
+      console.error('CORS bloqueou o analyser:', err);
+      corsBlocked = true;
+    }
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
+  }
+
+  function drawFrame(){
+    if (corsBlocked) return;
+    analyser.getByteFrequencyData(dataArray);
+    bars.forEach((bar, i) => {
+      const raw = dataArray[i * 4] || 0;
+      const h = 4 + (raw/255) * 26;
+      bar.style.height = h.toFixed(1) + 'px';
+    });
+    rafId = requestAnimationFrame(drawFrame);
+  }
+
+  playBtn.addEventListener('click', async () => {
+    setupAudioGraph();
+    if (audioCtx.state === 'suspended') await audioCtx.resume();
+    if (audio.paused) {
+      audio.play().catch(err => console.error('Erro ao tocar:', err));
+    } else {
+      audio.pause();
+    }
+  });
+
+  audio.addEventListener('play', () => {
+    iconPlay.style.display = 'none';
+    iconPause.style.display = 'block';
+    cancelAnimationFrame(rafId);
+    drawFrame();
+  });
+
+  audio.addEventListener('pause', () => {
+    iconPlay.style.display = 'block';
+    iconPause.style.display = 'none';
+    cancelAnimationFrame(rafId);
+  });
+
+  audio.addEventListener('error', (e) => {
+    console.error('ERRO NO AUDIO:', audio.error);
+  });
+<\/script>
