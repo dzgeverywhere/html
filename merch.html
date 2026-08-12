@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .store-area {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+      color: #bfaaae;
+      font-family: "HelveticaNeue-Medium", "Helvetica Neue", "Helvetica Pro", Helvetica, Arial, sans-serif;
+    }
+
+    .store-area .product-carousel {
+      width: 90%;
+      height: 63%;
+      padding: 10px 0 50px;
+      position: relative;
+    }
+
+    .store-area .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    .store-area .swiper-slide {
+      height: 400px;
+      width: 220px;
+    }
+
+    .store-area .grid-item__wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .store-area .grid-item__content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .store-area .card__wrapper {
+      display: flex;
+      width: 100%;
+      flex-grow: 1;
+    }
+    .store-area .card__container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      text-decoration: none;
+      color: inherit;
+      background-color: transparent;
+      border: none;
+      flex-grow: 1;
+    }
+
+    .store-area .card__image-wrapper {
+      width: 100%;
+      position: relative;
+    }
+    .store-area .card__image--container {
+      display: block;
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      overflow: hidden;
+      background-color: #184031;
+      border-radius: 12px;
+    }
+    .store-area .card__image--container .default-image,
+    .store-area .card__image--container .image-hover-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.2s ease-in-out;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .store-area .card__image--container .default-image,
+    .store-area .card__image--container .hover-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .store-area .card__image--container .default-image { opacity: 1; }
+    .store-area .card__image--container .image-hover-container { opacity: 0; }
+    .store-area .card__container.group:hover .card__image--container .image-hover-container { opacity: 1; }
+    .store-area .card__container.group:has(.image-hover-container img[src]):hover .card__image--container .default-image { opacity: 0; }
+
+    .store-area .card__details--wrapper {
+      padding: 0.75rem 0.5rem;
+      min-width: 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: #bfaaae;
+    }
+    .store-area .card__details--wrapper * { color: #184031; }
+
+    .store-area .card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: -0.25em;
+      margin-bottom: 0.25em;
+      order: 3;
+      list-style: none;
+      align-self: center;
+    }
+    .store-area .card__single-tag {
+      font-size: 0.75rem;
+      line-height: 1.5;
+      padding: 0.125rem 0.625rem;
+      background-color: transparent;
+      color: #184031;
+      border-radius: 12px;
+      white-space: nowrap;
+      border: 2px solid #184031;
+      font-weight: 500;
+      transition: 0.3s ease-in-out background-color;
+    }
+    .store-area .card__single-tag:hover {
+      background-color: #184031;
+      color: #bfaaae;
+    }
+
+    .store-area .card__title p {
+      font-weight: 400;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      text-transform: lowercase;
+      margin: 0;
+      color: #184031;
+    }
+    .store-area .card__price p {
+      font-weight: 300;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      text-transform: lowercase;
+      margin: auto 0 0;
+      padding-top: 0.5rem;
+      color: #184031;
+    }
+
+    .store-area .swiper-button-next,
+    .store-area .swiper-button-prev {
+      color: #184031;
+      background-color: rgba(191, 170, 174, 0.7);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      top: 40%;
+      transition: background-color 0.2s ease;
+      border: 2px solid #184031;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .store-area .swiper-button-next:hover,
+    .store-area .swiper-button-prev:hover {
+      background-color: #bfaaae;
+    }
+    .store-area .swiper-button-next svg,
+    .store-area .swiper-button-prev svg {
+      width: 8px;
+      height: auto;
+    }
+    .store-area .swiper-button-prev { left: 0; }
+    .store-area .swiper-button-next { right: 0; }
+    .store-area .swiper-button-disabled {
+      display: none;
+    }
+
+    .store-area .swiper-pagination {
+      bottom: 10px !important;
+      position: absolute;
+      width: 100%;
+      left: 0;
+    }
+    .store-area .swiper-pagination-bullet {
+      background-color: #184031;
+      opacity: 0.6;
+      width: 7px;
+      height: 7px;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+    }
+    .store-area .swiper-pagination-bullet-active {
+      background-color: #184031;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="store-area">
+    <div class="swiper product-carousel merch-carousel">
+      <ul class="swiper-wrapper product-grid" style="list-style:none; margin:0; padding:0;">
+
+        <li class="swiper-slide grid-item__wrapper">
+          <div class="grid-item__content">
+            <div class="card__wrapper">
+              <a href="#" class="card__container group">
+                <div class="card__image-wrapper">
+                  <div class="card__image--container">
+                    <img class="default-image" src="https://i.postimg.cc/XV8CJbZG/hoodie-front.png?dl=1" alt="hoodie" loading="lazy">
+                    <div class="image-hover-container">
+                      <img class="hover-image" src="https://i.postimg.cc/6wj1q8FX/hoodie-back.png?dl=1" alt="hoodie - verso">
+                    </div>
+                  </div>
+                </div>
+                <div class="card__details--wrapper">
+                  <ul class="card__tags">
+                    <li><div class="card__single-tag">buy</div></li>
+                  </ul>
+                  <div class="card__title">
+                    <p>hoodie</p>
+                  </div>
+                  <div class="card__price">
+                    <p><span class="price__current">$25.00</span></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li class="swiper-slide grid-item__wrapper">
+          <div class="grid-item__content">
+            <div class="card__wrapper">
+              <a href="#" class="card__container group">
+                <div class="card__image-wrapper">
+                  <div class="card__image--container">
+                    <img class="default-image" src="https://i.postimg.cc/Fh9ZxmMJ/cd-original.png?dl=1" alt="cd" loading="lazy">
+                    <div class="image-hover-container"></div>
+                  </div>
+                </div>
+                <div class="card__details--wrapper">
+                  <ul class="card__tags">
+                    <li><div class="card__single-tag">buy</div></li>
+                  </ul>
+                  <div class="card__title">
+                    <p>cd</p>
+                  </div>
+                  <div class="card__price">
+                    <p><span class="price__current">$25.00</span></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li class="swiper-slide grid-item__wrapper">
+          <div class="grid-item__content">
+            <div class="card__wrapper">
+              <a href="#" class="card__container group">
+                <div class="card__image-wrapper">
+                  <div class="card__image--container">
+                    <img class="default-image" src="https://i.postimg.cc/pP2ZBxwY/vinyl-original.png?dl=1" alt="vinyl" loading="lazy">
+                    <div class="image-hover-container"></div>
+                  </div>
+                </div>
+                <div class="card__details--wrapper">
+                  <ul class="card__tags">
+                    <li><div class="card__single-tag">buy</div></li>
+                  </ul>
+                  <div class="card__title">
+                    <p>vinyl</p>
+                  </div>
+                  <div class="card__price">
+                    <p><span class="price__current">$25.00</span></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li class="swiper-slide grid-item__wrapper">
+          <div class="grid-item__content">
+            <div class="card__wrapper">
+              <a href="#" class="card__container group">
+                <div class="card__image-wrapper">
+                  <div class="card__image--container">
+                    <img class="default-image" src="https://i.postimg.cc/1PrMVfT8/crewneck-front.png?dl=1" alt="crewneck" loading="lazy">
+                    <div class="image-hover-container">
+                      <img class="hover-image" src="https://i.postimg.cc/9CXbdc5X/crewneck-back.png?dl=1" alt="crewneck - verso">
+                    </div>
+                  </div>
+                </div>
+                <div class="card__details--wrapper">
+                  <ul class="card__tags">
+                    <li><div class="card__single-tag">buy</div></li>
+                  </ul>
+                  <div class="card__title">
+                    <p>crewneck</p>
+                  </div>
+                  <div class="card__price">
+                    <p><span class="price__current">$14.00</span></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li class="swiper-slide grid-item__wrapper">
+          <div class="grid-item__content">
+            <div class="card__wrapper">
+              <a href="#" class="card__container group">
+                <div class="card__image-wrapper">
+                  <div class="card__image--container">
+                    <img class="default-image" src="https://i.postimg.cc/jKxP9vgS/t-shirt.png?dl=1" alt="t-shirt" loading="lazy">
+                    <div class="image-hover-container"></div>
+                  </div>
+                </div>
+                <div class="card__details--wrapper">
+                  <ul class="card__tags">
+                    <li><div class="card__single-tag">buy</div></li>
+                  </ul>
+                  <div class="card__title">
+                    <p>t-shirt</p>
+                  </div>
+                  <div class="card__price">
+                    <p><span class="price__current">$25.00</span></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var merchSwiper = new Swiper(".store-area .merch-carousel", {
+      loop: false,
+      slidesPerView: 2,
+      spaceBetween: 15,
+      pagination: {
+        el: ".store-area .swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".store-area .swiper-button-next",
+        prevEl: ".store-area .swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+</html>
