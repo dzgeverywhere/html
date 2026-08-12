@@ -117,6 +117,41 @@
       <div class="store-area">
         <iframe src="https://dzgeverywhere.github.io/html/merch.html" loading="eager" scrolling="no"></iframe>
       </div>
+
+      <div id="thanks-block"></div>
+<script>
+  (function () {
+    var block = document.getElementById('thanks-block');
+    function render(name, photoSrc) {
+      var img = photoSrc ? '<img src="' + photoSrc + '" alt="" onerror="this.remove()">' : '';
+      var text = name ? 'obrigado, <span>' + name + '</span>, por ver a artwork!' : 'obrigado por ver a artwork!';
+      block.innerHTML = img + '<p>' + text + '</p>';
+    }
+    try {
+      var parentDoc = window.parent.document;
+      var photoEl = parentDoc.querySelector('.nav-user img.rounded-circle');
+      var photoSrc = photoEl ? photoEl.getAttribute('src') : null;
+      var name = null;
+      var nameEl = parentDoc.querySelector('.pro-user-name');
+      if (nameEl && nameEl.textContent.trim()) {
+        name = nameEl.textContent.trim().toUpperCase();
+      } else {
+        var profileLink = parentDoc.querySelector('a[href*="/artist/"]');
+        if (profileLink) {
+          var href = profileLink.getAttribute('href') || '';
+          var slug = href.split('/artist/')[1];
+          if (slug) {
+            slug = slug.split(/[/?#]/)[0];
+            if (slug) name = decodeURIComponent(slug).toUpperCase();
+          }
+        }
+      }
+      render(name, photoSrc);
+    } catch (err) {
+      render(null, null);
+    }
+  })();
+</script>
     </div>
   </div>
 </div>
