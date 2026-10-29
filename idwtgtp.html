@@ -1,7 +1,28 @@
 <div id="overs">
- <audio id="bg-music" autoplay="" loop="">
-  <source src="https://dl.dropboxusercontent.com/scl/fi/lz82sb79fsira3y8a6axc/Sabrina-Carpenter-Don-t-Smile-Instrumental.wav?rlkey=91wk207uj7voteavwcuwe9c3e&amp;st=i2q3smax" type="audio/mpeg">
+<audio id="bg-music" loop preload="auto">
+  <source src="https://dl.dropboxusercontent.com/scl/fi/lz82sb79fsira3y8a6axc/Sabrina-Carpenter-Don-t-Smile-Instrumental.wav?rlkey=91wk207uj7voteavwcuwe9c3e&st=i2q3smax" type="audio/wav">
 </audio>
+
+<script>
+  const bgMusic = document.getElementById("bg-music");
+  bgMusic.volume = 0.1;
+
+  function startMusic() {
+    bgMusic.play().then(() => {
+      ["click", "pointerdown", "touchstart", "keydown", "scroll"].forEach(evt =>
+        document.removeEventListener(evt, startMusic)
+      );
+    }).catch(err => console.log("Autoplay bloqueado, aguardando interação:", err));
+  }
+
+  // tenta tocar direto (funciona só se o navegador permitir)
+  startMusic();
+
+  // se bloqueado, toca na primeira interação
+  ["click", "pointerdown", "touchstart", "keydown", "scroll"].forEach(evt =>
+    document.addEventListener(evt, startMusic, { once: false })
+  );
+</script>
 
 <style>
   @import url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro');
