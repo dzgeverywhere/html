@@ -1,0 +1,870 @@
+<div id="overs">
+ <audio id="bg-music" autoplay="" loop="">
+  <source src="https://dl.dropboxusercontent.com/scl/fi/lz82sb79fsira3y8a6axc/Sabrina-Carpenter-Don-t-Smile-Instrumental.wav?rlkey=91wk207uj7voteavwcuwe9c3e&amp;st=i2q3smax" type="audio/mpeg">
+</audio>
+
+<style>
+  @import url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro');
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #f2e8df;
+  }
+
+  html,
+  body {
+    scrollbar-color: #f2e8df #261d2400;
+    scroll-snap-type: y mandatory;
+  }
+
+  body {
+    text-transform: lowercase;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .w-100,
+  .w-100 h5 {
+    color: #f2e8df;
+  }
+
+  textarea#example-textarea::placeholder {
+    color: #f2e8df;
+  }
+
+  .logo-lg img,
+  .logo-sm {
+    display: inline-block;
+    filter: brightness(0) saturate(100%) invert(93%) sepia(11%) saturate(293%) hue-rotate(332deg) brightness(102%) contrast(90%);
+  }
+
+  .fe-menu {
+    color: #f2e8df;
+  }
+
+  .btn-group-vertical>.btn-check:checked+.btn,
+  .btn-group-vertical>.btn-check:focus+.btn,
+  .btn-group-vertical>.btn.active,
+  .btn-group-vertical>.btn:active,
+  .btn-group-vertical>.btn:focus,
+  .btn-group-vertical>.btn:hover,
+  .btn-group>.btn-check:checked+.btn,
+  .btn-group>.btn-check:focus+.btn,
+  .btn-group>.btn.active,
+  .btn-group>.btn:active,
+  .btn-group>.btn:focus,
+  .btn-group>.btn:hover {
+    z-index: 1;
+    box-shadow: none;
+  }
+
+  .btn-group-vertical>.btn,
+  .btn-group>.btn {
+    position: relative;
+    flex: 1 1 auto;
+    border-color: #f2e8df;
+  }
+
+  .navbar-custom {
+    background: #261d24 !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    box-shadow: none !important;
+  }
+
+  .ps-xl-3.mt-3.mt-xl-0 {
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    color: #f2e8df;
+    font-size: 14px;
+    text-align: left;
+    text-transform: lowercase;
+  }
+
+  .ps-xl-3.mt-3.mt-xl-0 h4 {
+    color: #f2e8df;
+    text-transform: lowercase;
+  }
+
+  .ps-xl-3.mt-3.mt-xl-0 hr {
+    color: #f2e8df !important;
+    margin: 0px 0px 1px 0px !important;
+    opacity: 1;
+    height: 0.0rem;
+    text-transform: lowercase;
+  }
+
+  .ps-xl-3.mt-3.mt-xl-0 p {
+    line-height: 1.2;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    color: #f2e8df !important;
+    font-size: 14px;
+    text-align: left;
+    text-transform: none;
+    text-transform: lowercase;
+  }
+
+  div#conteudo h3 {
+    font-color: #f2e8df !important;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    font-weight: 100;
+    font-size: small;
+  }
+
+  div#conteudo {
+    font-size: 13px;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    font-color: #f2e8df !important;
+  }
+
+  span.badge.margembuttons {
+    background-color: transparent !important;
+    color: #f2e8df !important;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 5px;
+    text-shadow: none !important;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 15px;
+    box-shadow: none !important;
+    border: 2px solid #f2e8df;
+  }
+
+  body .ribbon-box .ribbon.float-start {
+    margin-left: -30px !important;
+    border-radius: 15px !important;
+  }
+
+  .ribbon-box .ribbon-info,
+  .ribbon-box .ribbon-blue {
+    background: #261d24;
+    color: #f2e8df !important;
+    font-weight: 100;
+    border-radius: 15px;
+    box-shadow: none !important;
+    border: 2px solid #f2e8df;
+    font-family: "Neue Haas Grotesk Display Pro";
+    font-weight: normal;
+  }
+
+  .ribbon-box {
+    background: #261d24 !important;
+    border-radius: 15px
+  }
+
+  .ribbon-box .ribbon-info:before {
+    border-color: transparent transparent transparent;
+  }
+
+  .ribbon-box .ribbon-blue:before {
+    border-color: transparent transparent transparent;
+  }
+
+  .me-1 {
+    margin-right: .375rem !important;
+    color: transparent !important;
+    background-image: url("https://i.imgur.com/O0UTQ0E.png");
+    background-size: cover !important;
+    width: 20px;
+    height: 20px;
+    display: inline-block !important;
+  }
+
+  body,
+  .left-side-menu {
+    background: #261d24 !important;
+    box-shadow: none !important;
+  }
+
+  .left-side-menu span,
+  .nav-second-level a {
+    color: #f2e8df;
+    font-size: 16px;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+
+  .left-side-menu ul,
+  .left-side-menu li,
+  .left-side-menu a {
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif !important;
+    border-radius: 0px 0px 15px 15px;
+  }
+
+  .left-side-menu ul li a {
+    font-size: 16px;
+    border-radius: 0px 15px 0 0;
+  }
+
+  .menu-arrow {
+    font-family: 'Material Design Icons' !important;
+    font-style: inherit !important;
+    color: #f2e8df !important;
+  }
+
+  .feather {
+    color: #f2e8df;
+  }
+
+  .bg-info {
+    background: #f2e8df !important;
+    color: #261d24 !important;
+    font-size: 14px !important;
+  }
+
+  .nav-second-level li a:focus,
+  .nav-second-level li a:hover {
+    color: #f2e8df !important;
+  }
+
+  .card:first-of-type:not(.mb-0) {
+    border-radius: 15px;
+    box-shadow: none !important;
+    border: 2px solid #f2e8df;
+  }
+
+  .card {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #conteudo .card {
+    border: 2px solid #f2e8df;
+    border-box: none !important;
+  }
+
+  #conteudo>div {
+    background-color: transparent !important;
+    border: 2px solid transparent !important;
+    box-shadow: none !important;
+  }
+
+  #conteudo>div[style*="border-color"] b span#button6 {
+    border: 2px solid #f2e8df !important;
+    color: #f2e8df !important;
+    border-radius: 7.5px !important;
+    background-color: transparent !important;
+    text-shadow: none !important;
+  }
+
+  #conteudo>div[style*="border-color"] b {
+    color: #f2e8df !important;
+  }
+
+  #conteudo:has(>div[style*="border-color"]) {
+    position: relative;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  #conteudo:has(>div[style*="border-color"])>div {
+    position: relative;
+    z-index: 1;
+  }
+
+  #conteudo:has(>div[style*="border-color"])::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #f2e8df;
+    border-radius: 10px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  #conteudo>div[style*="border-color"] {
+    position: relative;
+    z-index: 2;
+  }
+
+  html #conteudo div[style="background-color:#EEE9E9;border: 1px solid #d9dddf;box-shadow: 0 0 8px 2px rgba(0,0,0,.08);border-radius:10px;padding:5px 15px 15px 15px;"] {
+    color: #f2e8df;
+    border: 2px solid #f2e8df;
+    border-color: #f2e8df !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif !important;
+  }
+
+  #conteudo div[style="background-color:#EEE9E9;border: 1px solid #d9dddf;box-shadow: 0 0 8px 2px rgba(0,0,0,.08);border-radius:10px;padding:5px 15px 15px 15px;"] h3 {
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif !important;
+    font-weight: normal;
+  }
+
+  #conteudo div[style="background-color:#EEE9E9;border: 1px solid #d9dddf;box-shadow: 0 0 8px 2px rgba(0,0,0,.08);border-radius:10px;padding:5px 15px 15px 15px;"] b {
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif !important;
+  }
+
+  body[data-sidebar-size="condensed"] .left-side-menu #sidebar-menu>ul>li:hover>a {
+    box-shadow: none;
+    background: #261d24;
+  }
+
+  body[data-sidebar-size="condensed"] .left-side-menu #sidebar-menu>ul>li:hover>.collapse>ul {
+    box-shadow: none;
+    background: linear-gradient(#261d24, #261d24) padding-box, linear-gradient(to top, #f2e8df, transparent) border-box;
+    border: 2px solid transparent;
+    border-top: none;
+    border-right: 2px solid #f2e8df;
+
+  }
+    body[data-sidebar-size="condensed"] .left-side-menu #sidebar-menu>ul>li:hover>.collapse>ul ul{
+        box-shadow: none;
+        background: #261d24;
+    }
+
+
+  body[data-sidebar-size=condensed] .left-side-menu #sidebar-menu>ul>li:hover>a {
+    background-color: #261d24;
+    box-shadow: none;
+    border-top: 2px solid #f2e8df;
+    border-right: 2px solid #f2e8df;
+    border-bottom: none;
+    border-left: none;
+  }
+
+  .content-page {
+    background-color: transparent;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+
+  .col-lg-4,
+  .col-lg-8 {
+    padding: 10px;
+  }
+
+  .card-body h4 {
+    color: #f2e8df !important;
+    font-size: 25px;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    text-transform: lowercase;
+  }
+
+  .text-muted {
+    color: #f2e8df !important;
+    font-size: 16px !important;
+    line-height: 20px;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .rounded-circle {
+    background-color: transparent !important;
+    border: transparent !important;
+    filter: none !important;
+  }
+
+  .fa-check-circle {
+    color: #f2e8df !important;
+  }
+
+  .navbar-custom .topnav-menu .nav-link {
+    color: #f2e8df !important;
+  }
+
+  .nav-item a {
+    background: transparent !important;
+    border: 2px solid #f2e8df !important;
+    color: #f2e8df !important;
+    font-family: 'Neue Haas Grotesk Display Pro';
+  }
+
+  .nav-link.active {
+    background: #f2e8df !important;
+    color: #261d24 !important;
+    box-shadow: none;
+  }
+
+  .btn-dark {
+    background: transparent;
+    border: 2px solid #f2e8df;
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro';
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-transform: lowercase;
+  }
+
+  .btn-dark:hover {
+    background-color: #f2e8df;
+    color: #261d24;
+  }
+
+  .card-header {
+    background-color: transparent;
+    border: 2px solid #f2e8df;
+  }
+
+  .card-header h5 {
+    color: #f2e8df !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  #target-content a,
+  #target-content1 a,
+  #target-content2 a,
+  #target-content3 a,
+  #target-content4 p,
+  #target-content4 a {
+    color: #f2e8df !important;
+    border: transparent !important;
+    font-family: 'Neue Haas Grotesk Display Pro' !important;
+  }
+
+  #target-content a:hover,
+  #target-content1 a:hover,
+  #target-content2 a:hover,
+  #target-content3 a:hover,
+  #target-content4 p:hover,
+  #target-content4 a:hover {
+    color: #f2e8df !important;
+  }
+
+  .pagination>li>a,
+  .pagination>li>span {
+    background: transparent !important;
+    border: 2px solid #f2e8df !important;
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  #collapseOne .simplebar-content p {
+    background: transparent !important;
+    border: 2px solid #f2e8df;
+    border-color: #f2e8df !important;
+    color: #f2e8df !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .tooltip-inner {
+    border: 2px solid #f2e8df;
+    color: #f2e8df;
+    background-color: #261d24;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .tooltip-arrow:before {
+    border-top-color: #f2e8df !important;
+  }
+
+  .iconbadge {
+    border: 2px solid #f2e8df;
+    background: transparent !important;
+  }
+
+  .iconbadge font {
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .badgehabbink {
+    border: 2px solid transparent;
+  }
+
+  #transparencia .simplebar-content div {
+    border: 2px solid #f2e8df;
+    background: #f2e8df00 !important;
+    color: #f2e8df !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  #popover-container {
+    background-color: #f2e8df !important;
+    border: 0px;
+    box-shadow: none;
+  }
+
+  #popover-container b {
+    color: #261d24;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    text-transform: lowercase !important;
+  }
+
+  #popover-container i {
+    color: #261d24;
+  }
+
+  #abrirradio {
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    border: 2px solid #f2e8df;
+    background-color: #261d24 !important;
+    background-image: none !important;
+    text-transform: lowercase;
+  }
+
+  .modal-backdrop {
+    display: none;
+  }
+
+  .modal-content {
+    background-color: #261d24;
+    border: 2px solid #f2e8df;
+  }
+
+  .btn-white,
+  .modal-body input {
+    background: transparent !important;
+    border: 2px solid #f2e8df;
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .modal-body .btn-primary:hover {
+    border: 2px solid white;
+  }
+
+  .col-md-12 {
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    width: 267px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .col-md-12:before {
+    content: "since you played this game with me © famou$";
+  }
+
+  @media (max-width: 768px) {
+    .content-page {
+      margin-left: 0;
+      filter: none !important;
+      opacity: 1 !important;
+    }
+
+    .left-side-menu {
+      display: none;
+    }
+  }
+
+  .noti-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .noti-scroll .simplebar-scrollbar:before {
+    background-color: #f2e8df;
+  }
+
+  .noti-scroll .simplebar-scrollbar {
+    background-color: #f2e8df;
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .noti-scroll:hover .simplebar-scrollbar,
+  .noti-scroll .simplebar-scrollbar:hover {
+    opacity: 1;
+  }
+
+  .noti-scroll .simplebar-content-wrapper {
+    background-color: #f2e8df;
+  }
+
+  .noti-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dropdown-menu .cornotif {
+    background-color: #261d24 !important;
+    border: 2px solid #261d24 !important;
+  }
+
+  .dropdown-menu .text-muted {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .dropdown-menu .text-muted small {
+    font-size: 13px;
+  }
+
+  .nav-item {
+    margin: 0 0 5px 0;
+  }
+
+  .fixedbutton {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    border-radius: 10px !important;
+  }
+
+  .dropdown-menu {
+    color: #f2e8df;
+    border: 2px solid #f2e8df;
+    border-radius: 1.25rem;
+  }
+
+  .dropdown-divider {
+    height: 0;
+    margin: .45rem 0;
+    overflow: hidden;
+    border-top: 2px solid #f2e8df;
+  }
+
+  .dropdown-menu.profile-dropdown {
+    background-color: #261d24;
+  }
+
+  .dropdown-menu.profile-dropdown .dropdown-header h6 {
+    color: #f2e8df !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .dropdown-menu.profile-dropdown a {
+    color: #f2e8df !important;
+  }
+
+  .dropdown-menu.dropdown-lg {
+    background-color: #261d24;
+    border: 2px solid #f2e8df;
+  }
+
+  .dropdown-item.noti-title h5 {
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .dropdown-item.notify-all {
+    background-color: #261d24;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    color: #f2e8df !important;
+    border-top: 2px solid #f2e8df;
+    border-radius: 15px;
+  }
+
+  .dropdown-item.notify-all:hover {
+    background-color: #f2e8df;
+    color: #261d24 !important;
+  }
+
+  .dropdown-item.notify-item {
+    padding: 10px;
+  }
+
+  a.dropdown-item.notify-item {
+    box-shadow: none;
+  }
+
+  a.dropdown-item.text-center.text-primary.notify-item.notify-all {
+    border-radius: 15px;
+  }
+
+  .dropdown-item.notify-item .notify-icon {
+    background-color: transparent !important;
+    filter: none !important;
+  }
+
+  .dropdown-item.notify-item b {
+    color: #f2e8df !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  }
+
+  .dropdown-item.notify-item .badge-soft-success {
+    color: #f2e8df;
+    background-color: transparent !important;
+    border-radius: 15px;
+    box-shadow: none !important;
+    border: 2px solid #f2e8df;
+
+  }
+
+  .app-search .input-group .form-control {
+    background-color: transparent;
+    border: 2px solid #f2e8df;
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    text-transform: lowercase;
+  }
+
+  .app-search .input-group .form-control::placeholder {
+    color: #f2e8df;
+    text-transform: lowercase;
+    opacity: 1;
+  }
+
+  .app-search .app-search-box .input-group input::placeholder {
+    color: rgba(242, 232, 223, 1);
+  }
+
+  .app-search .input-group .btn.input-group-text {
+    background-color: transparent;
+    border: 2px solid #f2e8df;
+    color: #f2e8df;
+    block-size: 2.4rem;
+  }
+
+  .dropdown-menu.dropdown-lg.p-0 {
+    background-color: #261d24;
+    border: 2px solid #f2e8df;
+  }
+
+  .dropdown-menu.dropdown-lg.p-0 input.form-control {
+    background-color: transparent;
+    border: 2px solid #f2e8df;
+    color: #f2e8df;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    text-transform: lowercase;
+  }
+
+  .dropdown-menu.dropdown-lg.p-0 input.form-control::placeholder {
+    color: #f2e8df;
+    text-transform: lowercase;
+    opacity: 1;
+  }
+
+  .dropdown-menu .dropdown-item.notify-item.cornotif {
+    background: #261d24 !important;
+    box-shadow: none !important;
+  }
+
+  .dropdown-item.notify-item b font {
+    color: #f2e8df !important;
+  }
+
+  .dropdown-item.notify-item p small font {
+    color: #f2e8df !important;
+  }
+
+  .dropdown-item.notify-item p small {
+    color: #f2e8df !important;
+  }
+
+  .dropdown-item.notify-item p {
+    color: #f2e8df !important;
+  }
+
+  .dropdown-item.notify-item span font {
+    color: #f2e8df !important;
+  }
+
+  .dropdown-item:hover {
+    background: transparent;
+    color: transparent;
+  }
+
+  .text-end input {
+    background: transparent !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    border: 2px solid #f2e8df;
+    border-radius: 1.2rem;
+    color: #f2e8df;
+    text-transform: lowercase;
+  }
+
+  .form>textarea {
+    background: transparent !important;
+    border: 2px solid #f2e8df !important;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif !important;
+    text-transform: lowercase;
+    color: #f2e8df !important;
+    border-radius: 20px;
+  }
+
+  .custom-textarea::placeholder {
+    color: #f2e8df;
+    opacity: 1;
+    text-transform: lowercase;
+  }
+
+  .custom-textarea:-ms-input-placeholder {
+    color: #f2e8df;
+  }
+
+  .custom-textarea::-ms-input-placeholder {
+    color: #f2e8df;
+  }
+
+  input[type="search"]#top-search.form-control::placeholder {
+    color: #f2e8df !important;
+    opacity: 1;
+    text-transform: lowercase;
+  }
+
+  input[type="search"]#top-search.form-control:-ms-input-placeholder {
+    color: #f2e8df !important;
+  }
+
+  input[type="search"]#top-search.form-control::-ms-input-placeholder {
+    color: #f2e8df !important;
+  }
+
+  .dropdown-item.noti-title {
+    border-radius: 15px;
+  }
+</style>
+
+<script>
+  const bgMusic = document.getElementById("bg-music");
+
+  bgMusic.volume = 0.1;
+
+  document.addEventListener('click', function() {
+    bgMusic.play().catch(function(error) {
+      console.error("A reprodução automática foi impedida:", error);
+    });
+    document.removeEventListener('click', arguments.callee);
+  });
+</script>
+
+<div class="imagem-desktop">
+  <img src="https://i.imgur.com/v1pvtYj.jpeg" alt="banner" style="width: 980px;">
+</div>
+
+<div class="imagem-mobile">
+  <img src="https://i.imgur.com/v1pvtYj.jpeg" alt="banner" class="img-fluid">
+</div>
+
+<style>
+  #overs {
+    overflow: hidden !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imagem-mobile img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .imagem-mobile {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .imagem-desktop {
+      display: block;
+    }
+
+    .imagem-mobile {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .imagem-desktop {
+      display: none;
+    }
+
+    .imagem-mobile {
+      display: block;
+    }
+  }
+</style> </div>                    
