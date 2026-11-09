@@ -1,0 +1,242 @@
+<style>
+  @import url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro');
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  #ssPlayerCard{
+    --ink: #413132;              /* marrom do texto do banner */
+    --cloud: #eceef0;            /* branco das nuvens */
+    --sky: #9aa2af;              /* cinza-azulado do fundo */
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 100%;
+    max-width: 380px;
+    border: none;
+    border-radius: 26px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-sizing: border-box;
+    color: var(--ink);
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    text-transform: lowercase;
+    letter-spacing: -0.03em;
+
+    /* nuvem recortada do banner (embutida, não depende de link externo) */
+    background:
+      url("data:image/jpeg;base64,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") left center / cover no-repeat,
+      linear-gradient(180deg, #d6d9de 0%, #9aa2af 100%);
+
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* brilho leve na borda, igual às pílulas do banner */
+  #ssPlayerCard::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(236,238,240,.12), rgba(236,238,240,0));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+  }
+
+  #ssPlayerCard .play-btn{
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform .15s ease, background .2s ease;
+  }
+  #ssPlayerCard .play-btn:hover{ transform: scale(1.06); background: #2f2324; }
+  #ssPlayerCard .play-btn:active{ transform: scale(.96); }
+  #ssPlayerCard .play-btn svg{ width:16px; height:16px; fill: var(--cloud); margin-left:3px; }
+  #ssPlayerCard .play-btn.is-playing svg{ margin-left:0; }
+
+  #ssPlayerCard .player-meta{ flex:1; min-width:0; }
+  #ssPlayerCard .player-meta .t1{
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #ssPlayerCard .player-meta .t2{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--ink);
+    opacity: .7;
+    margin: 5px 0 0;
+  }
+
+  #ssPlayerCard .waveform{
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 28px;
+    margin-top: 12px;
+  }
+  #ssPlayerCard .waveform i{
+    width: 3px;
+    border-radius: 3px;
+    display: block;
+    min-height: 3px;
+    background: var(--ink);
+    transition: height .06s linear;
+  }
+  /* o degradê de opacidade dá o ar "suave" das nuvens */
+  #ssPlayerCard .waveform i:nth-child(3n+1){ opacity: 1; }
+  #ssPlayerCard .waveform i:nth-child(3n+2){ opacity: .75; }
+  #ssPlayerCard .waveform i:nth-child(3n){ opacity: .5; }
+
+  #ssPlayerCard .player-progress{
+    height: 4px;
+    background: rgba(65,49,50,.25);
+    border-radius: 4px;
+    margin-top: 12px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  #ssPlayerCard .player-progress .fill{
+    height: 100%;
+    width: 0%;
+    background: var(--ink);
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<audio id="ssTrack" preload="metadata" crossorigin="anonymous">
+  <source src="https://dzgeverywhere.github.io/html/01%20school%20street.m4a" type="audio/mp4">
+</audio>
+
+<div id="ssPlayerCard">
+  <button class="play-btn" id="ssPlayBtn" aria-label="Tocar / pausar">
+    <svg id="ssIconPlay" viewBox="0 0 24 24" style="display: block;"><path d="M4 2 L22 12 L4 22 Z"></path></svg>
+    <svg id="ssIconPause" viewBox="0 0 24 24" style="display: none;"><path d="M5 2 H10 V22 H5 Z M14 2 H19 V22 H14 Z"></path></svg>
+  </button>
+  <div class="player-meta">
+    <p class="t1">school street</p>
+    <p class="t2">the little ear</p>
+    <div class="waveform" id="ssWaveform">
+      <i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:4px"></i>
+    </div>
+    <div class="player-progress" id="ssProgressBar"><div class="fill" id="ssProgressFill"></div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const audio       = document.getElementById('ssTrack');
+  const playBtn      = document.getElementById('ssPlayBtn');
+  const iconPlay     = document.getElementById('ssIconPlay');
+  const iconPause    = document.getElementById('ssIconPause');
+  const bars         = document.querySelectorAll('#ssWaveform i');
+  const progressBar  = document.getElementById('ssProgressBar');
+  const progressFill = document.getElementById('ssProgressFill');
+
+  let audioCtx, analyser, source, dataArray, rafId;
+  let corsBlocked = false;
+
+  function setupAudioGraph(){
+    if (audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    try {
+      source = audioCtx.createMediaElementSource(audio);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+    } catch(err) {
+      console.error('CORS bloqueou o analyser:', err);
+      corsBlocked = true;
+    }
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
+  }
+
+  function drawFrame(){
+    if (!corsBlocked) {
+      analyser.getByteFrequencyData(dataArray);
+      bars.forEach((bar, i) => {
+        const raw = dataArray[i * 4] || 0;
+        const h = 4 + (raw/255) * 26;
+        bar.style.height = h.toFixed(1) + 'px';
+      });
+    }
+    updateProgress();
+    rafId = requestAnimationFrame(drawFrame);
+  }
+
+  function updateProgress(){
+    if (audio.duration) {
+      progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    }
+  }
+
+  function setPlayingUI(isPlaying){
+    playBtn.classList.toggle('is-playing', isPlaying);
+    iconPlay.style.display  = isPlaying ? 'none' : 'block';
+    iconPause.style.display = isPlaying ? 'block' : 'none';
+  }
+
+  playBtn.addEventListener('click', async () => {
+    setupAudioGraph();
+    if (audioCtx.state === 'suspended') await audioCtx.resume();
+    if (audio.paused) {
+      audio.play().catch(err => console.error('Erro ao tocar:', err));
+    } else {
+      audio.pause();
+    }
+  });
+
+  audio.addEventListener('play', () => {
+    setPlayingUI(true);
+    cancelAnimationFrame(rafId);
+    drawFrame();
+  });
+
+  audio.addEventListener('pause', () => {
+    setPlayingUI(false);
+    cancelAnimationFrame(rafId);
+  });
+
+  audio.addEventListener('ended', () => {
+    setPlayingUI(false);
+    cancelAnimationFrame(rafId);
+    progressFill.style.width = '0%';
+  });
+
+  audio.addEventListener('error', (e) => {
+    console.error('ERRO NO AUDIO:', audio.error);
+  });
+
+  progressBar.addEventListener('click', (e) => {
+    if (!audio.duration) return;
+    const rect = progressBar.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = ratio * audio.duration;
+  });
+})();
+</script>
